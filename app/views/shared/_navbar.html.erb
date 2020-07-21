@@ -1,0 +1,42 @@
+
+<!-- Static navbar -->
+<div class="container">
+    <div class="row">
+        <div class="col-12 pt-3 pb-3 mb4">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <%= link_to 'HiGoLearn', root_path, class: "navbar-brand" %>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ml-auto">
+                        <%# if (!user_signed_in?) %>
+                            <li class="nav-item active p-2">
+                                <%#= link_to "Login", new_user_session_path, class: "btn btn-light text-primary" %>
+                            </li>
+                            <li class="nav-item active p-2">
+                                <%#= link_to "Sign Up", new_user_registration_path, class: "btn btn-light text-primary" %>   
+                            </li>
+                        <%# else %>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <%#= image_tag avatar_url(current_user), class: "img-circle avatar-small" %>&nbsp;
+                                    <%#= current_user.fullname %>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="#">Manage Listing</a>
+                                    <a class="dropdown-item" href="#">List Your Trip</a></a>
+                                    <a class="dropdown-item" href="#">Your Reservation</a>
+                                    <a class="dropdown-item" href="#">Your Trip</a>
+                                    <%#= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item" %>
+                                    <div class="dropdown-divider"></div>
+                                    <%#= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                                </div>
+                            </li>
+                        <%# end %>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

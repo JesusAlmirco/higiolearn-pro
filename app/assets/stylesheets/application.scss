@@ -13,3 +13,40 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap/scss/bootstrap";
+
+
+
+ body {
+    color: #565a5c;
+    background-color: #F8F8F8;
+    font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
+
+a {
+    color: #00A699;
+}
+
+.container {
+    width: 80%;
+}
+
+.text-babu, .icon-babu {
+    color: #00A699;
+}
+
+.text-red, .icon-red {
+    color: #FF5A5F;
+}
+
+// NAVBARS
+.navbar {
+    background-color: #FFFFFF !important;
+    border-radius: .30rem;
+}
+
+.navbar .navbar-brand {
+    color: #FF5A5F !important;
+    font-size: 2em;
+    font-weight: 400;
+}
