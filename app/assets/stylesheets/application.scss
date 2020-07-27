@@ -13,11 +13,13 @@
  *= require_tree .
  *= require_self
  */
- @import "bootstrap/scss/bootstrap";
+@import "bootstrap/scss/bootstrap";
+//Toastr notification system
+@import "toastr/toastr";
 
 
 
- body {
+body {
     color: #565a5c;
     background-color: #F8F8F8;
     font-family: "Varela Round", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
