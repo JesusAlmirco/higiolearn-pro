@@ -32,6 +32,8 @@ gem 'devise', '~> 4.7', '>= 4.7.2'
 gem 'bootsnap', '>= 1.4.2', require: false
 #Administration System with activeadmin
 gem 'activeadmin', '~> 2.7'
+#activeadmin theme
+gem 'active_skin', '~> 0.0.13'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
