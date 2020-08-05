@@ -15,5 +15,39 @@ ActiveAdmin.register Project do
   #   permitted
   # end
   
-  permit_params :name, :content, :price
+  permit_params :name, :content, :price, :image
+
+  #Form for upload image with activestorage
+  # form do |f|
+  #   f.semantic_errors # shows errors on :base
+  #   f.inputs          # builds an input field for every attribute
+  #   f.inputs do
+  #     f.input :image, as: :file #method for adde image to activeadmin
+  #   end
+  #   f.actions         # adds the 'Submit' and 'Cancel' buttons
+  # end
+
+  show do |t|
+    attributes_table do
+      row :name
+      row :content
+      row :price
+      row :image do |ad|
+        #project.image? ? image_tag(project.image.url, height: '100') : content_tag(:span, "No photo yet")
+        #f.input :image, as: :file, hint: image_tag(f.object.image.variant(resize_to_limit: [100,100]))
+        image_tag url_for(ad.image), height: '100'
+      end
+    end
+  end
+
+  form :html => { :enctype => "multipart/form-data" } do |f|
+    f.inputs do
+      f.input :name
+      f.input :content
+      f.input :price
+      f.input :image, as: :file, height: '100' #method for adde image to activeadmin
+    end
+    f.actions  
+  end
+
 end
