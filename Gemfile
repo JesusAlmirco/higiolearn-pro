@@ -31,7 +31,7 @@ gem 'devise', '~> 4.7', '>= 4.7.2'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 #Administration System with activeadmin
-gem 'activeadmin', '~> 2.7'
+gem 'activeadmin', '~> 2.7.0'
 #activeadmin theme
 gem 'active_skin', '~> 0.0.13'
 
@@ -51,3 +51,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+#Error
+#rails/helper.rb:355: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
+#sprockets/base.rb:118: warning: The called method `[]' is defined here
+#solved
+gem "sprockets-rails", git: 'git://github.com/rails/sprockets-rails.git'
