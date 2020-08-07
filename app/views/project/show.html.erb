@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-lg-12 text-center">
+        <%= content_tag :h3, @project.name, class: "text-title" %>
+        <img class="rounded-circle avatar-large" src="https://coderealprojects.com/assets/leotrieu-f7211023c164aff27c0f6590e6b4c32a.jpg" alt="JesusAlmirco" />
+        <p>Jesus Almirco</p>
+    </div>
+</div>
+<br>
+
+<!-- PROJECT DETAIL -->
+<div class="row">
+    <!-- LEFT CARD -->
+    <div class="col-md-3">
+        <div class="card text-center">
+            <%= image_tag @project.image, class: "card-img-top" %>
+            <div class="card-body">
+                <button type="button" class="btn btn-form">Start Project</button>
+                <br>
+                <br>
+                <h6 class="card-text"><i class="far fa-file-code"></i> Full Source Code</h6>
+                <h6 class="card-text"><i class="far fa-comments"></i> Discussion Support</h6>
+                <h6 class="card-text"><i class="far fa-clock"></i> Duration 3 Hours</small></h6>
+            </div>
+        </div>
+    </div>
+    <!-- /LEFT CARD -->
+
+    <!-- RIGHT CARD -->
+    
+    <div class="col-md-9">
+        <div class="card">
+            <div class="card-body">
+                <% @tasks.each do |task| %>
+                
+                    <% if task.header %>
+                        <!--TASK HEADER-->
+                        <h5 class="card-title"><i class="fas fa-graduation-cap"></i> <%= task.title %></h5>
+                        <p></p>
+                        <!--/TASK HEADER-->
+                    <% else %>
+                        <!--TASK ITEMS-->
+                        <ul class="list-group-flush">
+                            
+                            <%= link_to [task.project, task], class: "list-group-item" do %>
+                                <span><%= task.note %></span>
+                                <span class="float-right">
+                                    2:08 &nbsp;
+                                    <i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>
+                                </span>
+                            <% end %>
+                        </ul>
+                        <!--/TASK ITEMS-->
+                    <% end %>
+                
+                <% end %>
+            </div>
+        </div>
+    </div>
+    
+    <!-- /RIGHT CARD -->
+</div>
+<!-- /PROJECT DETAIL -->
