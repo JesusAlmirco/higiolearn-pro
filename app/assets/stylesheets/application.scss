@@ -31,11 +31,12 @@ a {
 }
 
 .container {
-    width: 80%;
+    width: 100%;
 }
 
 .text-babu, .icon-babu {
     color: #00A699;
+    font-size: medium;
 }
 
 .text-red, .icon-red {
@@ -124,4 +125,56 @@ a {
     outline: none;
     border-color: #066165;
     background-color: #066165;
+}
+
+//MODAL 
+.modal.left .modal-dialog,
+.modal.top .modal-dialog,
+.modal.bottom .modal-dialog {
+  -webkit-transform: translate3d(0%, 0, 0);
+  -ms-transform: translate3d(0%, 0, 0);
+  -o-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+//MODAL LEFT
+
+.modal.left .modal-dialog {
+  position: fixed;
+  margin: auto;
+  width: 500px;
+  max-width: 100%;
+  height: 100%;
+}
+
+.modal.left .modal-content{
+  height: 100%;
+  overflow-y: auto;
+}
+
+.modal.left .modal-body {
+  padding: 15px 15px 80px;
+}
+
+.modal.left.fade .modal-dialog {
+  left: -500px;
+  -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+  -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+  -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+  transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.left.fade.show .modal-dialog {
+  left: 0;
+}
+.modal.left .modal-content,
+.modal.top .modal-content,
+.modal.bottom .modal-content,
+.modal.full .modal-content {
+  border-radius: 0;
+  border: none;
+}
+
+.modal.left .modal-dialog.modal-sm{
+  width: 300px;
 }
