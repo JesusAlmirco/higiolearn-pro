@@ -37,6 +37,8 @@ gem 'active_skin', '~> 0.0.13'
 #Markdown and seo url gems
 gem 'redcarpet', '~> 3.5'
 gem 'coderay', '~> 1.1', '>= 1.1.3'
+#SEO Gem change id[s] for title of project and task
+gem 'friendly_id', '~> 5.3.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

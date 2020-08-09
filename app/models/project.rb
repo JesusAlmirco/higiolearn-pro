@@ -1,4 +1,8 @@
 class Project < ApplicationRecord
+    #Add friendly_id 
+    extend FriendlyId
+    friendly_id :name, use: [:slugged, :finders]
+
     has_many :tasks
     #add image to project
     has_one_attached :image
