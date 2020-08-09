@@ -34,6 +34,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'activeadmin', '~> 2.7.0'
 #activeadmin theme
 gem 'active_skin', '~> 0.0.13'
+#Markdown and seo url gems
+gem 'redcarpet', '~> 3.5'
+gem 'coderay', '~> 1.1', '>= 1.1.3'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
