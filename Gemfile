@@ -39,6 +39,8 @@ gem 'redcarpet', '~> 3.5'
 gem 'coderay', '~> 1.1', '>= 1.1.3'
 #SEO Gem change id[s] for title of project and task
 gem 'friendly_id', '~> 5.3.0'
+#drag and drop admin dashboard
+gem 'active_admin-sortable_tree', '~> 2.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

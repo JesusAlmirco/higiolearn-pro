@@ -11,4 +11,9 @@ class Project < ApplicationRecord
     validates :name, presence: true, length: { maximum: 100 }
     validates :content, presence: true, length: { maximum: 1000 }
     validates :price, presence: true, numericality: { only_integer: true }
+
+    #Implemnted legth text 
+    def shortname
+        name.length > 65? name[0..65] + "..." : name
+    end
 end
