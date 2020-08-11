@@ -1,5 +1,5 @@
 <!--TASK SHOW-->
-<div class="row mt-4">
+<div class="row mt-4" data-turbolinks="false">
     <!--LEFT BUTTON-->
     <div class="col-md-2">
         <div class="card text-center">
@@ -34,7 +34,7 @@
                                         <!--TASK ITEMS-->
                                         <ul class="list-group-flush">
                                             
-                                            <%= link_to [task.project, task], class: "list-group-item" do %>
+                                            <%= link_to [task.project, task], class: "list-group-item", style: "color: #00A699 !important;" do %>
                                                 <span><%= task.title %></span>
                                                 <span class="float-right">
                                                     2:08 &nbsp;
@@ -62,14 +62,41 @@
     <!-- Right Card -->
 
     <div class="col-md-10">
-        <div class="card mb-3">
+        <div class="card mb-3 text-center">
             <div class="card-body">
-                <%= content_tag :h5, @task.title, class: "card-title text-center" %>
-                <div class="embed-responsive embed-responsive-16by9">
-                    <%= content_tag :iframe, @task.video, class: "embed-responsive-item" %>
+                <%= content_tag :h5, @task.title, class: "card-title" %>
+                <div id="wistia_<%= @task.video %>" class="mt-4" style="width: 875px; height: 544px;">
+                    <%#= content_tag :iframe, , class: "embed-responsive-item  " %>
                 </div>
+                <% if !@prev_task.nil? %>
+                    <span>
+                        <%= link_to 'Previous', [@prev_task.project, @prev_task], class: "btn btn-form mt-5" %>
+                    </span>
+                <% else %>
+                    &nbsp;
+                <% end %>
+                <% if !@next_task.nil? %>
+                    <span>
+                        <%= link_to 'Continue', [@next_task.project, @next_task], class: "btn btn-form mt-5" %>
+                    </span>
+                <% end %>
+                <br>
+                <br>
                 <%= content_tag :p, markdown(@task.note), class: "card-text"%>
             </div>
         </div>
     </div>
 </div>
+
+
+<script charset="ISO-8859-1" src="https://fast.wistia.net/assets/external/E-v1.js"></script>
+
+<script>
+    wistiaEmbed = Wistia.embed("<%= @task.video %>"), {
+        videoQuanlity: "hd-only",
+        videoFoam: true
+    }
+    function setPlaySpeed(speed) {
+        wistiaEmbed.playbackRate(speed);
+    }
+</script>

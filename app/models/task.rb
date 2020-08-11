@@ -9,4 +9,14 @@ class Task < ApplicationRecord
   validates :video, presence: true
   validates :tag, presence: true
   validates :project, presence: true
+
+  #Implemnted next button
+  def next
+    project.tasks.where("tag > ? AND header = ?", tag, false).order(:tag).first
+  end
+
+  #Implemnted preview button
+  def prev
+    project.tasks.where("tag < ? AND header = ?", tag, false).order(:tag).last
+  end
 end
