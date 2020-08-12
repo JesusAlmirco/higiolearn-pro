@@ -2,8 +2,11 @@ class Project < ApplicationRecord
     #Add friendly_id 
     extend FriendlyId
     friendly_id :name, use: [:slugged, :finders]
-
+    #tasks association
     has_many :tasks
+    #subscriptions association
+    has_many :subscriptions
+    has_many :users, through: :subscriptions
     #add image to project
     has_one_attached :image
 

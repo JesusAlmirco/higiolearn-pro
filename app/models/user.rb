@@ -11,4 +11,7 @@ class User < ApplicationRecord
 
   #Declarated Fullname register with devise
   validates :fullname, presence: true, length: {maximum: 25}
+  #subscriptions association
+  has_many :subscriptions
+  has_many :projects, through: :subscriptions
 end

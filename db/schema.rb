@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_09_212954) do
+ActiveRecord::Schema.define(version: 2020_08_11_012408) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,16 @@ ActiveRecord::Schema.define(version: 2020_08_09_212954) do
     t.index ["slug"], name: "index_projects_on_slug", unique: true
   end
 
+  create_table "subscriptions", force: :cascade do |t|
+    t.bigint "project_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["project_id", "user_id"], name: "index_subscriptions_on_project_id_and_user_id", unique: true
+    t.index ["project_id"], name: "index_subscriptions_on_project_id"
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
   create_table "tasks", force: :cascade do |t|
     t.string "title"
     t.text "note"
@@ -115,5 +125,7 @@ ActiveRecord::Schema.define(version: 2020_08_09_212954) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "subscriptions", "projects"
+  add_foreign_key "subscriptions", "users"
   add_foreign_key "tasks", "projects"
 end
