@@ -21,8 +21,10 @@
                     <% else %>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %>&nbsp;
-                                <%= current_user.fullname %>
+                                <%= image_tag avatar_url(current_user), class: "img-circle avatar-medium" %>&nbsp;
+                                <span>
+                                    <%= truncate(current_user.fullname, :length => 17, :separator => ' ') %>
+                                </span>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                 <a class="dropdown-item" href="#">Manage Listing</a>

@@ -11,16 +11,39 @@
 <div class="row">
     <!-- LEFT CARD -->
     <div class="col-md-3">
-        <div class="card text-center">
-            <%= image_tag @project.image, class: "card-img-top" %>
-            <div class="card-body">
-                <button type="button" class="btn btn-form">Start Project</button>
-                <br>
-                <br>
-                <h6 class="card-text"><i class="far fa-file-code"></i> Full Source Code</h6>
-                <h6 class="card-text"><i class="far fa-comments"></i> Discussion Support</h6>
-                <h6 class="card-text"><i class="far fa-clock"></i> Duration 3 Hours</small></h6>
-            </div>
+        
+        <div class="card mb-4 shadow-sm">
+            <% if !@joined %>
+                <div class="card-header text-center">
+                    <%= content_tag :h1, @project.price == 0? "Free" : "$ #{@project.price}", class: "my-0 font-weight-normal" %>
+                </div>
+                <div class="card-body text-center">
+                    
+                    <h6 class="card-text"><i class="far fa-file-code"></i> Full Source Code</h6>
+                    <h6 class="card-text"><i class="far fa-comments"></i> Discussion Support</h6>
+                    <br>
+                    <% if user_signed_in? %>
+                        <%= form_tag free_path do %>
+                            <%= hidden_field_tag 'project_id', @project.id %>
+                            <button type="submit" class="btn btn-form">Start Project</button>
+                        <% end %>
+                    <% else %>
+                        <%= link_to new_user_session_path do  %>
+                            <button type="submit" class="btn btn-form">Start Project</button>
+                        <% end %>
+                    <% end %>
+
+                </div>
+            <% else %>
+                <div class="card-body text-center">
+                    <%= image_tag "desk.svg", class: "img-circle avatar-medium" %> <hr>
+                    <span>
+                        Welcome to this Project 
+                    </span>
+                    <%= content_tag :h5, truncate(current_user.fullname, :length => 17, :separator => ' ') %> <br>
+                    <%= image_tag "party.svg", class: "img-circle avatar-medium" %>
+                </div>
+            <% end %>
         </div>
     </div>
     <!-- /LEFT CARD -->
@@ -42,7 +65,7 @@
                         <ul class="list-group-flush">
                             
                             <%= link_to [task.project, task], class: "list-group-item", style: "color: #00A699 !important;" do %>
-                                <span><%= task.title %></span>
+                                <span><i class="fas fa-lock"></i> <%= task.title %></span>
                                 <span class="float-right">
                                     2:08 &nbsp;
                                     <i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>
