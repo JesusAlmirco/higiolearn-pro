@@ -32,14 +32,9 @@
                                         <!--/TASK HEADER-->
                                     <% else %>
                                         <!--TASK ITEMS-->
-                                        <ul class="list-group-flush">
-                                            
-                                            <%= link_to [task.project, task], class: "list-group-item", style: "color: #00A699 !important;" do %>
-                                                <span><%= task.title %></span>
-                                                <span class="float-right">
-                                                    2:08 &nbsp;
-                                                    <i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>
-                                                </span>
+                                        <ul class="list-group list-group-flush">
+                                            <%= link_to [task.project, task], class: "list-group-item task-item" do %>
+                                                <span><i class="fas fa-lock-open"></i> <%= task.title %></span>
                                             <% end %>
                                         </ul>
                                         <!--/TASK ITEMS-->
@@ -62,28 +57,51 @@
     <!-- Right Card -->
 
     <div class="col-md-10">
-        <div class="card mb-3 text-center">
+        <div class="card mb-3">
+            <%= content_tag :h5, @task.title, class: "card-title mt-4 text-center" %>
+            <br>
+            <!--Task note-->
             <div class="card-body">
-                <%= content_tag :h5, @task.title, class: "card-title" %>
-                <div id="wistia_<%= @task.video %>" class="mt-4" style="width: 875px; height: 544px;">
-                    <%#= content_tag :iframe, , class: "embed-responsive-item  " %>
-                </div>
-                <% if !@prev_task.nil? %>
-                    <span>
-                        <%= link_to 'Previous', [@prev_task.project, @prev_task], class: "btn btn-form mt-5" %>
-                    </span>
-                <% else %>
-                    &nbsp;
-                <% end %>
-                <% if !@next_task.nil? %>
-                    <span>
-                        <%= link_to 'Continue', [@next_task.project, @next_task], class: "btn btn-form mt-5" %>
-                    </span>
-                <% end %>
-                <br>
-                <br>
                 <%= content_tag :p, markdown(@task.note), class: "card-text"%>
             </div>
+
+            <% if @task.video.present? %>
+                <!--Wistia video-->
+                <div class="card-body text-center">
+                    <div id="wistia_<%= @task.video %>" class="mt-4 wistia-card"></div>
+                    <!--Buttons next & prev-->
+                    <% if !@prev_task.nil? %>
+                        <span>
+                            <%= link_to 'Previous', [@prev_task.project, @prev_task], class: "btn btn-form mt-5" %>
+                        </span>
+                    <% else %>
+                        &nbsp;
+                    <% end %>
+                    <% if !@next_task.nil? %>
+                        <span>
+                            <%= link_to 'Continue', [@next_task.project, @next_task], class: "btn btn-form mt-5" %>
+                        </span>
+                    <% end %>
+                </div>
+            <% else %>
+                <div class="card-body text-center">
+                <%= hidden_field_tag 'video_id', @task.video.id %>
+                <div id="wistia_<%= @task.video %>" class="mt-4 wistia-card"></div>
+                    <!--Buttons next & prev-->
+                    <% if !@prev_task.nil? %>
+                        <span>
+                            <%= link_to 'Previous', [@prev_task.project, @prev_task], class: "btn btn-form mt-5" %>
+                        </span>
+                    <% else %>
+                        &nbsp;
+                    <% end %>
+                    <% if !@next_task.nil? %>
+                        <span>
+                            <%= link_to 'Continue', [@next_task.project, @next_task], class: "btn btn-form mt-5" %>
+                        </span>
+                    <% end %>
+                </div>
+            <% end %>
         </div>
     </div>
 </div>

@@ -58,18 +58,16 @@
                     <% if task.header %>
                         <!--TASK HEADER-->
                         <h5 class="card-title"><i class="fas fa-graduation-cap"></i> <%= task.title %></h5>
-                        <p></p>
                         <!--/TASK HEADER-->
                     <% else %>
                         <!--TASK ITEMS-->
-                        <ul class="list-group-flush">
-                            
-                            <%= link_to [task.project, task], class: "list-group-item", style: "color: #00A699 !important;" do %>
-                                <span><i class="fas fa-lock"></i> <%= task.title %></span>
-                                <span class="float-right">
-                                    2:08 &nbsp;
-                                    <i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>
-                                </span>
+                        <ul class="list-group list-group-flush">
+                            <%= link_to [task.project, task], class: "list-group-item task-item" do %>  <!--  --->
+                                <% if !@joined %>
+                                    <span><i class="fas fa-lock"></i> <%= task.title %></span> 
+                                <% else %>
+                                    <span><i class="fas fa-lock-open"></i> <%= task.title %></span> 
+                                <% end %>
                             <% end %>
                         </ul>
                         <!--/TASK ITEMS-->
