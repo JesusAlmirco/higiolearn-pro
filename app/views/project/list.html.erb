@@ -1,0 +1,34 @@
+<div class="row mt-4">
+    <div class="col text-center">
+        <h2 class="text-tile">My Projects</h2>
+    </div>
+</div>
+<br>
+
+
+
+
+<% if  @projects.count > 0 %>
+    <div class="row row-cols-1 row-cols-md-3">
+        <% @projects.each do |project| %>
+            <div class="col mb-4">
+                <%= link_to project do %>
+                    <div class="card">
+                        <%# if project.image.present? %>
+                            <%#= image_tag project.image, class: "card-img-top" %> <!--, wheith: "100", height: "200"-->
+                        <%# end %>
+                        <div class="card-body" style="height: 8em">
+                            <%= content_tag :h5, project.shortname, class: "card-title", style: "color: #00A699 !important;" %> 
+                            <h6 class="card-text"><small class="text-muted">Published <%= time_ago_in_words(project.created_at) %> ago. </small></h6><br/>
+                        </div>
+                    </div>
+                <% end %>
+            </div>
+        <% end %>
+    </div>
+<% else %>
+        <div class="col text-center">
+            <h2 class="text-tile">Currently you're not in any projects! <i class="far fa-frown"></i></h2>
+            <%= link_to 'Select a Project', project_index_path, class: "btn btn-form" %><i class="fas fa-rocket"></i>
+        </div>
+<% end %>

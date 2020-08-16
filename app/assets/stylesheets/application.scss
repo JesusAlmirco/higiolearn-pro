@@ -53,6 +53,18 @@ a {
     color: #FF5A5F !important;
     font-size: 2em;
     font-weight: 400;
+    //background : url("/assets/images/logo.png") no-repeat top left;
+}
+.navbar .navbar-brand .logo {
+    width: 50%;
+    max-width: 330px;
+    height: auto;
+}
+//footer logo
+.text-center .footer-logo {
+    width: 50%;
+    max-width: 330px;
+    height: auto;
 }
 
 .navbar-nav .nav-item .nav-link {
@@ -131,6 +143,26 @@ a {
     border-color: #066165;
     background-color: #066165;
 }
+//SOCIAL BUTTONS
+.rounded-social-buttons .social-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    width: 3.125rem;
+    height: 3.125rem;
+    border: 0.125rem solid transparent;
+    padding: 0;
+    text-decoration: none;
+    text-align: center;
+    color: #00A699;
+    font-size: 1.5625rem;
+    font-weight: normal;
+    line-height: 2em;
+    border-radius: 1.6875rem;
+    transition: all 0.5s ease;
+    margin-right: 0.25rem;
+    margin-bottom: 0.25rem;
+}
 
 //MODAL 
 .modal.left .modal-dialog,
@@ -202,4 +234,31 @@ blockquote {
     margin: 1.5em 5px;
     padding: 1em 5px .1em 5px;
     quotes: "\201C""\201D""\2018""\2019";
+}
+
+//Home page css
+.jumbotron {
+    background-color: #fff !important;
+}
+.jumbotron-title {
+    color: #00A699;
+}
+
+.feature-card-title {
+    color: #00A699;
+}
+
+.img-responsive{
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+.feature-img-responsive {
+    width: 48px;
+    max-width: 150px;
+    height: auto;
+    //center image
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }

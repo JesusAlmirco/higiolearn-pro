@@ -1,2 +1,54 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<!-- Jumbotron Header -->
+<header class="jumbotron my-4 text-center">
+    <h2 class="jumbotron-title">Bienvenido a <strong>HiGoLearn</strong></h2>
+    <span>
+        <p>
+            Aprenda a codificar desde básico hasta crear <strong>Startups</strong><br>
+            de la vida real. Con Python, Django, Ruby, Rails, JavaScript, ...
+        </p>
+    </span>
+    <%= image_tag 'header_img.png', class: "img-responsive" %> <br> <!--Img  of "bootstrapmade" link -> https://bootstrapmade.com/-->
+    <%= link_to 'Start Project', project_index_path, class: "btn btn-form" %>
+</header>
+
+<div class="row mt-4">
+    <div class="col text-center">
+        <h2 class="text-tile">Características Asombrosas</h2>
+    </div>
+</div>
+<br/>
+
+<div class="row row-cols-1 row-cols-md-3">
+    <div class="col mb-4">
+        <div class="card text-center">
+            <%= image_tag 'wolf.svg', class: "img-circle feature-img-responsive mt-2" %>
+            <div class="card-body">
+                <h4 class="card-title feature-card-title">Wolf Level</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col mb-4">
+        <div class="card text-center">
+            <%= image_tag 'lion.svg', class: "img-circle feature-img-responsive mt-2" %>
+            <div class="card-body">
+                <h4 class="card-title feature-card-title">Lion Level</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col mb-4">
+        <div class="card text-center">
+            <%= image_tag 'dragon.svg', class: "img-circle feature-img-responsive mt-2" %>
+            <div class="card-body">
+                <h4 class="card-title feature-card-title">Dragon Level</h4>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<hr/>
+<br>
+<%= render 'shared/footer' %>
