@@ -36,12 +36,16 @@
                 </div>
             <% else %>
                 <div class="card-body text-center">
-                    <%= image_tag "desk.svg", class: "img-circle avatar-medium" %> <hr>
+                    <%= image_tag avatar_url(current_user), class: "img-circle avatar-medium" %>&nbsp; <hr>
                     <span>
                         Welcome to this Project 
                     </span>
                     <%= content_tag :h5, truncate(current_user.fullname, :length => 17, :separator => ' ') %> <br>
-                    <%= image_tag "party.svg", class: "img-circle avatar-medium" %>
+                    <%= image_tag "party.svg", class: "img-circle avatar-medium" %> <br> <br>
+                    <span><%= @project.average_rating %></span> <span> ( <%= @reviews.count %> <%= @reviews.count > 1? "Reviews" : "Review" %> )</span> <br><br>
+                    <!--Review Modal-->
+                    <%= render 'reviews/index' %>
+
                 </div>
             <% end %>
         </div>

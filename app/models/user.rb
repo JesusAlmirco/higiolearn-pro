@@ -14,4 +14,7 @@ class User < ApplicationRecord
   #subscriptions association
   has_many :subscriptions
   has_many :projects, through: :subscriptions
+
+  #review project
+  has_many :reviews
 end

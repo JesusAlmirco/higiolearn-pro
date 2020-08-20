@@ -1,0 +1,34 @@
+<% if @reviews.blank? %>
+    <span class="text-center">There is no review yet</span>
+<% end %>
+
+<% @reviews.order(id: :desc).each do |r| %>
+    <div class="row">
+        <div class="col-md-3 text-center">
+            <%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %> <br>
+            <strong><%= truncate(current_user.fullname, :length => 17, :separator => ' ') %></strong>
+        </div>
+        <div class="col-md-9">
+            <div>
+                <%= r.star %>
+            </div>
+            <% if current_user && current_user.id == r.user.id %>
+                <div class="float-right">
+                    <%= link_to [@project, r], method: :delete, data: {confirm: "Are you sure?"}  do  %>
+                        <i class="fas fa-trash-alt"></i>
+                    <% end %>
+                </div>
+            <% end %>
+            <div  class="text-left">
+                <%= r.comment %>
+            </div>
+            <div>
+                <h6 class="float-right">
+                    <small class="text-muted">
+                        Review <strong><%= time_ago_in_words(r.created_at) %></strong> ago. 
+                    </small>
+                </h6> 
+            </div>
+        </div>
+    </div>
+<% end %>

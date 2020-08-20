@@ -15,6 +15,12 @@ class ProjectController < ApplicationController
     if !current_user.nil? && !current_user.projects.nil?
       @joined = current_user.projects.include?(@project)
     end
+
+    #Review validates
+    @review = Review.new
+    @reviews = @project.reviews
+    #check if has review
+    @hasReview = @reviews.find_by(user_id: current_user.id) if current_user
   end
 
   #myproject list

@@ -26,4 +26,9 @@ Rails.application.routes.draw do
     resources :task, only: [:show]
   end
 
+  #get reviews to project
+  resources :project do
+    resources :reviews, only: [:create, :destroy]
+  end
+
 end

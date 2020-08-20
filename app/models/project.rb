@@ -7,6 +7,9 @@ class Project < ApplicationRecord
     #subscriptions association
     has_many :subscriptions
     has_many :users, through: :subscriptions
+    
+    #review project
+    has_many :reviews
     #add image to project
     has_one_attached :image
 
@@ -18,5 +21,10 @@ class Project < ApplicationRecord
     #Implemnted legth text 
     def shortname
         name.length > 65? name[0..65] + "..." : name
+    end
+
+    #implemntas project stars
+    def average_rating
+        reviews.blank? ? 0 : reviews.average(:star).round(2)
     end
 end
