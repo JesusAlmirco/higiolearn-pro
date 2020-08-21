@@ -9,7 +9,7 @@
 
 
 <% if  @projects.count > 0 %>
-    <div class="row row-cols-1 row-cols-md-3">
+    <div class="row row-cols-1 row-cols-md-3" data-turbolinks="false">
         <% @projects.each do |project| %>
             <div class="col mb-4">
                 <%= link_to project do %>

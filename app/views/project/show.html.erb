@@ -10,7 +10,7 @@
 <!-- PROJECT DETAIL -->
 <div class="row">
     <!-- LEFT CARD -->
-    <div class="col-md-3">
+    <div class="col-md-3" data-turbolinks="false">
         
         <div class="card mb-4 shadow-sm">
             <% if !@joined %>
@@ -57,28 +57,57 @@
     
     <div class="col-md-9">
         <div class="card">
-            <div class="card-body" data-turbolinks="false">
-                <% @tasks.each do |task| %>
+            <div class="card-body">
+                <ul class="nav nav-tabs justify-content-center" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active h-5" data-toggle="tab" href="#about" role="tab"> OVERVIEW </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h-5" data-toggle="tab" href="#learn_path" role="tab"> LEARN PATH </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h-5" data-toggle="tab" href="#discussion" role="tab"> REVIEWS </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+                    <div id="about" class="tab-pane active" data-turbolinks="false" role="tabpanel">
+                        <h5 class="text-center mt-4"><%= @project.name %></h5><br>
+                        <p class="text-left p-4">
+                            <%= @project.content %>
+                        </p>
+                    </div>
+
+                    <div id="learn_path" class="tab-pane p-4" data-turbolinks="false" role="tabpanel">
+                        <% @tasks.each do |task| %>
                 
-                    <% if task.header %>
-                        <!--TASK HEADER-->
-                        <h5 class="card-title"><i class="fas fa-graduation-cap"></i> <%= task.title %></h5>
-                        <!--/TASK HEADER-->
-                    <% else %>
-                        <!--TASK ITEMS-->
-                        <ul class="list-group list-group-flush">
-                            <%= link_to [task.project, task], class: "list-group-item task-item" do %>  <!--  --->
-                                <% if !@joined %>
-                                    <span><i class="fas fa-lock"></i> <%= task.title %></span> 
-                                <% else %>
-                                    <span><i class="fas fa-lock-open"></i> <%= task.title %></span> 
-                                <% end %>
+                            <% if task.header %>
+                                <!--TASK HEADER-->
+                                <h5 class="card-title mt-4"><i class="fas fa-graduation-cap"></i>&nbsp; <%= task.title %></h5>
+                                <!--/TASK HEADER-->
+                            <% else %>
+                                <!--TASK ITEMS-->
+                                <ul class="list-group list-group-flush">
+                                    <%= link_to [task.project, task], class: "list-group-item task-item" do %>  <!--  --->
+                                        <% if !@joined %>
+                                            <span><i class="fas fa-lock"></i>&nbsp; <%= task.title %></span> 
+                                        <% else %>
+                                            <span><i class="fas fa-lock-open"></i>&nbsp; <%= task.title %></span> 
+                                        <% end %>
+                                    <% end %>
+                                </ul>
+                                <!--/TASK ITEMS-->
                             <% end %>
-                        </ul>
-                        <!--/TASK ITEMS-->
-                    <% end %>
-                
-                <% end %>
+                        
+                        <% end %>
+                    </div>
+                    <div id="discussion" class="tab-pane" data-turbolinks="false" role="tabpanel">
+                        <div class="mt-4 p-4">
+                            <%= render 'reviews/show' %>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </div>
     </div>

@@ -1,13 +1,13 @@
 <% if @reviews.blank? %>
-    <span class="text-center">There is no review yet</span>
+    <p class="text-center">
+        <strong>There is no review yet</strong>
+    </p>
 <% end %>
 
 <% @reviews.order(id: :desc).each do |r| %>
     <div class="row">
         <div class="col-md-3 text-center">
-            <br>
-            <br>
-            <%= image_tag avatar_url(r.user), class: "img-circle avatar-medium" %>
+            <%= image_tag avatar_url(r.user), class: "img-circle avatar-large" %>
             <br>
             
         </div>
