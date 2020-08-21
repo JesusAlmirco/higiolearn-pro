@@ -36,13 +36,14 @@
                 </div>
             <% else %>
                 <div class="card-body text-center">
-                    <%= image_tag avatar_url(current_user), class: "img-circle avatar-medium" %>&nbsp; <hr>
+                    <%= image_tag avatar_url(current_user), class: "img-circle avatar-medium" %><hr>
                     <span>
                         Welcome to this Project 
                     </span>
                     <%= content_tag :h5, truncate(current_user.fullname, :length => 17, :separator => ' ') %> <br>
                     <%= image_tag "party.svg", class: "img-circle avatar-medium" %> <br> <br>
-                    <span><%= @project.average_rating %></span> <span> ( <%= @reviews.count %> <%= @reviews.count > 1? "Reviews" : "Review" %> )</span> <br><br>
+                    <div id="average_rating"></div> 
+                    <span> ( <%= @reviews.count %> <%= @reviews.count > 1? "Reviews" : "Review" %> )</span> <br><br>
                     <!--Review Modal-->
                     <%= render 'reviews/index' %>
 
@@ -85,3 +86,12 @@
     <!-- /RIGHT CARD -->
 </div>
 <!-- /PROJECT DETAIL -->
+
+<!--Raty script-->
+<script>
+    $('#average_rating').raty({
+        path: '/assets/raty-js/lib/images',
+        readOnly: true,
+        score: <%= @project.average_rating %>
+    });
+</script>

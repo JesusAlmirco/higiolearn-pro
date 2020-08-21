@@ -19,7 +19,7 @@
                 <%# if @joined && !@hasReview %>
                     <%= form_for([@project, @review]) do |f| %>
                         <div class="form-group text-center">
-                            <%= f.text_field :star, class: "form-control"%>
+                            <div id="stars"></div>
                         </div>
                         <div class="form-group">
                             <%= f.text_area :comment, class: "form-control", placeholder: "Your comment here ....", rows: "4" %>
@@ -40,3 +40,12 @@
         </div>
     </div>
 </div>
+
+
+<script>
+    $('#stars').raty({
+        path: '/assets/raty-js/lib/images',
+        scoreName: 'review[star]',
+        score: 1
+    });
+</script>

@@ -5,13 +5,16 @@
 <% @reviews.order(id: :desc).each do |r| %>
     <div class="row">
         <div class="col-md-3 text-center">
-            <%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %> <br>
-            <strong><%= truncate(current_user.fullname, :length => 17, :separator => ' ') %></strong>
+            <br>
+            <br>
+            <%= image_tag avatar_url(r.user), class: "img-circle avatar-medium" %>
+            <br>
+            
         </div>
         <div class="col-md-9">
-            <div>
-                <%= r.star %>
-            </div>
+            <strong><%= r.user.fullname %></strong>
+            <div id="star_<%= r.id %>"></div>
+
             <% if current_user && current_user.id == r.user.id %>
                 <div class="float-right">
                     <%= link_to [@project, r], method: :delete, data: {confirm: "Are you sure?"}  do  %>
@@ -20,7 +23,7 @@
                 </div>
             <% end %>
             <div  class="text-left">
-                <%= r.comment %>
+                <p><%= r.comment %></p>
             </div>
             <div>
                 <h6 class="float-right">
@@ -31,4 +34,12 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $('#star_<%= r.id %>').raty({
+            path: '/assets/raty-js/lib/images',
+            readOnly: true,
+            score: <%= r.star %>
+        });
+    </script>
 <% end %>
