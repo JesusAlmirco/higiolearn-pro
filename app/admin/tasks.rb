@@ -15,7 +15,7 @@ ActiveAdmin.register Task do
   #   permitted
   # end
   
-  permit_params :title, :note, :video, :header, :tag, :project_id
+  permit_params :title, :note, :header, :tag, :project_id #:video, disable video action for next project
 
   sortable tree: false,
             sorting_attribute: :tag
@@ -32,6 +32,18 @@ ActiveAdmin.register Task do
     column :title
     column :tag
     column :project
+
+    actions
+  end
+
+  form do |f|
+    f.inputs do
+      input :project, label: "Project"
+      input :title, label: "Title"
+      input :note, label: "Note"
+      #input :video, label: "video"
+      input :header, label: "Header"
+    end
 
     actions
   end

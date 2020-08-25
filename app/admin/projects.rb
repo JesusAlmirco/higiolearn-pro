@@ -15,7 +15,7 @@ ActiveAdmin.register Project do
   #   permitted
   # end
   
-  permit_params :name, :content, :price, :image
+  permit_params :name, :content, :price #, :imagedisable image upload temrporary
 
   #Form for upload image with activestorage
   # form do |f|
@@ -32,11 +32,12 @@ ActiveAdmin.register Project do
       row :name
       row :content
       row :price
-      row :image do |ad|
+      #row :image do |ad|
         #project.image? ? image_tag(project.image.url, height: '100') : content_tag(:span, "No photo yet")
         #f.input :image, as: :file, hint: image_tag(f.object.image.variant(resize_to_limit: [100,100]))
-        image_tag url_for(ad.image), height: '100'
-      end
+       # image_tag url_for(ad.image), height: '100' 
+       #<!--- Disable image upload temporary -->
+      #end
     end
   end
 
@@ -45,7 +46,7 @@ ActiveAdmin.register Project do
       f.input :name
       f.input :content
       f.input :price
-      f.input :image, as: :file, height: '100' #method for adde image to activeadmin
+      #f.input :image, as: :file, height: '100' #method for adde image to activeadmin -> disable image upload temporary
     end
     f.actions  
   end

@@ -11,7 +11,7 @@ class Project < ApplicationRecord
     #review project
     has_many :reviews
     #add image to project
-    has_one_attached :image
+    #has_one_attached :image # disable im,age upload temporary
 
     #validate project
     validates :name, presence: true, length: { maximum: 100 }
@@ -20,7 +20,7 @@ class Project < ApplicationRecord
 
     #Implemnted legth text 
     def shortname
-        name.length > 65? name[0..65] + "..." : name
+        name.length > 80? name[0..80] + "..." : name
     end
 
     #implemntas project stars

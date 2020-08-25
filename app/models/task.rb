@@ -5,9 +5,9 @@ class Task < ApplicationRecord
 
   belongs_to :project
 
-  validates :title, presence: true, length: { maximum: 50 }
-  validates :video, presence: true
-  validates :tag, presence: true
+  validates :title, presence: true, length: { maximum: 200 }
+  #validates :video, presence: true
+  #validates :tag, presence: true
   validates :project, presence: true
 
   #Implemnted next button

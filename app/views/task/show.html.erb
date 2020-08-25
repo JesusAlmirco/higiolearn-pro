@@ -61,60 +61,44 @@
             <%= content_tag :h5, @task.title, class: "card-title mt-4 text-center" %>
             <br>
             <!--Task note-->
-            <div class="card-body">
+            <div class="card-body p-4">
                 <%= content_tag :p, markdown(@task.note), class: "card-text"%>
             </div>
+            <div class="card-body text-center">
+                <% if !@prev_task.nil? %>
+                    <span>
+                        <%= link_to 'Previous', [@prev_task.project, @prev_task], class: "btn btn-form mt-5" %>
+                    </span>
+                <% else %>
+                    &nbsp;
+                <% end %>
+                <% if !@next_task.nil? %>
+                    <span>
+                        <%= link_to 'Continue', [@next_task.project, @next_task], class: "btn btn-form mt-5" %>
+                    </span>
+                <% end %>
+            </div>
 
-            <% if @task.video.present? %>
-                <!--Wistia video-->
-                <div class="card-body text-center">
-                    <div id="wistia_<%= @task.video %>" class="mt-4 wistia-card"></div>
-                    <!--Buttons next & prev-->
-                    <% if !@prev_task.nil? %>
-                        <span>
-                            <%= link_to 'Previous', [@prev_task.project, @prev_task], class: "btn btn-form mt-5" %>
-                        </span>
-                    <% else %>
-                        &nbsp;
-                    <% end %>
-                    <% if !@next_task.nil? %>
-                        <span>
-                            <%= link_to 'Continue', [@next_task.project, @next_task], class: "btn btn-form mt-5" %>
-                        </span>
-                    <% end %>
-                </div>
-            <% else %>
-                <div class="card-body text-center">
-                <%= hidden_field_tag 'video_id', @task.video.id %>
-                <div id="wistia_<%= @task.video %>" class="mt-4 wistia-card"></div>
-                    <!--Buttons next & prev-->
-                    <% if !@prev_task.nil? %>
-                        <span>
-                            <%= link_to 'Previous', [@prev_task.project, @prev_task], class: "btn btn-form mt-5" %>
-                        </span>
-                    <% else %>
-                        &nbsp;
-                    <% end %>
-                    <% if !@next_task.nil? %>
-                        <span>
-                            <%= link_to 'Continue', [@next_task.project, @next_task], class: "btn btn-form mt-5" %>
-                        </span>
-                    <% end %>
-                </div>
-            <% end %>
         </div>
+
+        <div id="disqus_thread"></div>
+        <script>
+
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+        
+        var disqus_config = function () {
+            this.page.url = 'http://localhost:3000/<%= @task.id %>';  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = 'task_<%= @task.id %>'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://higolearn-com.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
 </div>
-
-
-<script charset="ISO-8859-1" src="https://fast.wistia.net/assets/external/E-v1.js"></script>
-
-<script>
-    wistiaEmbed = Wistia.embed("<%= @task.video %>"), {
-        videoQuanlity: "hd-only",
-        videoFoam: true
-    }
-    function setPlaySpeed(speed) {
-        wistiaEmbed.playbackRate(speed);
-    }
-</script>
