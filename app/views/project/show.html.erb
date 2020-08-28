@@ -60,21 +60,20 @@
             <div class="card-body">
                 <ul class="nav nav-tabs justify-content-center" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active h-5" data-toggle="tab" href="#about" role="tab"> OVERVIEW </a>
+                        <a class="nav-link active h-5" data-toggle="tab" href="#about" role="tab"><i class="fas fa-comment-dots"></i> OVERVIEW </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link h-5" data-toggle="tab" href="#learn_path" role="tab"> LEARN PATH </a>
+                        <a class="nav-link h-5" data-toggle="tab" href="#learn_path" role="tab"><i class="fas fa-road"></i> LEARN PATH </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link h-5" data-toggle="tab" href="#discussion" role="tab"> REVIEWS </a>
+                        <a class="nav-link h-5" data-toggle="tab" href="#discussion" role="tab"> REVIEWS <i class="fas fa-star"></i></a>
                     </li>
                 </ul>
 
                 <div class="tab-content">
                     <div id="about" class="tab-pane active" data-turbolinks="false" role="tabpanel">
-                        <h5 class="text-center mt-4"><%= @project.name %></h5><br>
                         <p class="text-left p-4">
-                            <%= @project.content %>
+                            <%=  markdown(@project.content) %>
                         </p>
                     </div>
 
