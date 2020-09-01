@@ -20,7 +20,8 @@ Rails.application.routes.draw do
 
   #subscriptions route
   post '/free' => 'charge#free'
-
+  #subscription with stripe route
+  post '/pay' => 'charge#pay'
   # get 'projects/show'
   resources :project do
     resources :task, only: [:show]

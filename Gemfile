@@ -41,6 +41,8 @@ gem 'coderay', '~> 1.1', '>= 1.1.3'
 gem 'friendly_id', '~> 5.3.0'
 #drag and drop admin dashboard
 gem 'active_admin-sortable_tree', '~> 2.1.0'
+#gem for manage pyments
+gem 'stripe'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
