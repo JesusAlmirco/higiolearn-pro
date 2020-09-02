@@ -1,3 +1,20 @@
+<% content_for :head  do %>
+    <title><%= @project.name %> | HiGoLearn</title>
+    <meta name="author" content="Jesus Almirco">
+    <!--Twitter Card Data-->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@higolearn">
+    <meta name="twitter:creator" content="@higolearn">
+    <meta name="twitter:title" content="<%= @project.name %>">
+    <meta name="twitter:description" content="<%= @project.content %>">
+    <meta name="twitter:image:src" content="<%#= image_tag 'social_share_image.png' %>">
+    <!--Open Graph Data-->
+    <meta property="og:site_name" content="HiGoLearn">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<%= @project.name %>">
+    <meta property="og:description" content="<%= @project.content %>">
+    <meta property="og:image" content="<%#= image_tag 'social_share_image.png' %>">
+<% end %>
 <div class="row">
     <div class="col-lg-12 text-center">
         <%= content_tag :h3, @project.name, class: "text-title" %>
