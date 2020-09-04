@@ -49,21 +49,25 @@ a {
     border-radius: .30rem;
 }
 
-.navbar .navbar-brand {
+.navbar-brand {
     color: #FF5A5F !important;
     font-size: 2em;
-    font-weight: 400;
+    font-weight: 400px;
+    display: block;
+    padding: 0px;
+    
     //background : url("/assets/images/logo.png") no-repeat top left;
 }
-.navbar .navbar-brand .logo {
-    width: 50%;
-    max-width: 330px;
+.navbar-brand>img {
+    width: 100%;
+    max-width: 210px;
     height: auto;
 }
+
 //footer logo
 .text-center .footer-logo {
-    width: 50%;
-    max-width: 330px;
+    width: 100%;
+    max-width: 200px;
     height: auto;
 }
 
@@ -256,12 +260,12 @@ blockquote {
 
 .img-responsive{
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     height: auto;
 }
 .feature-img-responsive {
-    width: 48px;
-    max-width: 150px;
+    width: 100%;
+    max-width: 170px;
     height: auto;
     //center image
     display: block;
