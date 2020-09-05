@@ -2,9 +2,9 @@ class PagesController < ApplicationController
   def home
   end
 
-  def terms
-  end
+  # def about disable this function for temporary
+  # end
 
-  def privacy
+  def terms_privacy
   end
 end
