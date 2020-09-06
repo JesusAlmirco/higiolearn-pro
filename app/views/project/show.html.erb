@@ -36,16 +36,16 @@
                 </div>
                 <div class="card-body text-center">
                     
-                    <h6 class="card-text"><i class="far fa-file-code"></i> Full Source Code</h6>
-                    <h6 class="card-text"><i class="far fa-comments"></i> Discussion Support</h6>
-                    <h6 class="card-text"><i class="far fa-hourglass"></i> Lifetime Access</h6>
+                    <h6 class="card-text"><i class="far fa-file-code"></i> Código Fuente</h6>
+                    <h6 class="card-text"><i class="far fa-comments"></i> Discusión</h6>
+                    <h6 class="card-text"><i class="far fa-hourglass"></i> Acceso de por Vida</h6>
                     <br>
                     <!--subscription form-->
                     <% if user_signed_in? %>
                         <% if @project.price == 0 %>
                             <%= form_tag free_path do %>
                                 <%= hidden_field_tag 'project_id', @project.id %>
-                                <button type="submit" class="btn btn-form">Start Project</button>
+                                <button type="submit" class="btn btn-form">Iniciar Proyecto</button>
                             <% end %>
                         <% else %>
                             
@@ -71,7 +71,7 @@
                         <% end %>
                     <% else %>
                         <%= link_to new_user_session_path do  %>
-                            <button type="submit" class="btn btn-form">Start Project</button>
+                            <button type="submit" class="btn btn-form">Iniciar Proyecto</button>
                         <% end %>
                     <% end %>
 
@@ -102,13 +102,13 @@
             <div class="card-body">
                 <ul class="nav nav-tabs justify-content-center" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active h-5" data-toggle="tab" href="#about" role="tab"><i class="fas fa-comment-dots"></i> OVERVIEW </a>
+                        <a class="nav-link active h-5" data-toggle="tab" href="#about" role="tab"><i class="fas fa-comment-dots"></i> VISIÓN </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link h-5" data-toggle="tab" href="#learn_path" role="tab"><i class="fas fa-road"></i> LEARN PATH </a>
+                        <a class="nav-link h-5" data-toggle="tab" href="#learn_path" role="tab"><i class="fas fa-road"></i> CONTENIDO </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link h-5" data-toggle="tab" href="#discussion" role="tab"> REVIEWS <i class="fas fa-star"></i></a>
+                        <a class="nav-link h-5" data-toggle="tab" href="#discussion" role="tab"> COMENTARIOS <i class="fas fa-star"></i></a>
                     </li>
                 </ul>
 
