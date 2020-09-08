@@ -19,7 +19,7 @@ class TaskController < ApplicationController
       @next_task = @task.next
       @prev_task = @task.prev
     else
-      flash[:alert] = "No permission to this project!"
+      flash[:alert] = "You don't have permission for this project!"
       redirect_to project
     end
     
