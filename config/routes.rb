@@ -10,7 +10,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
 
   #user registrations route - devise gem
-  devise_for :users
+  devise_for :users, 
+              path: '', 
+              path_names: {sign_up: 'register', sign_in: 'login', edit: 'profile', sign_out: 'logout'}
+              #controllers: {registrations: 'registrations'}
 
   # get 'tasks/show'
   get 'project/index'
