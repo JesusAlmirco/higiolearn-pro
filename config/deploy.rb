@@ -5,7 +5,7 @@ set :application, "higolearn"
 set :repo_url, "git@github.com:JesusAlmirco/higolearn.git"
 
 # Deploy to the user's home directory
-set :deploy_to, "/home/deploy/#{fetch :application}"
+set :deploy_to, "/home/jesus/#{fetch :application}"
 
 append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'#, 'public/packs', 'node_modules'
 # Default branch is :master
