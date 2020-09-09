@@ -59,7 +59,7 @@
                                 <%= hidden_field_tag 'project_id', @project.id %>
 
                                 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                    data-key="<%= Rails.application.credentials[Rails.env.to_sym][:stripe][:STRIPE_PUBLIC_KEY] %>"
+                                    data-key="<%= Rails.application.credentials.dig(Rails.env.to_sym, :stripe, :STRIPE_PUBLIC_KEY) %>"
                                     data-name="HiGoLearn"
                                     data-description="<%= @project.name %>"
                                     data-email="<%= current_user.email %>"
