@@ -117,8 +117,8 @@ Rails.application.configure do
     address: 'smtp.mailgun.org',
     port: 587,
     authentication: 'plain',
-    domain: Rails.application.credentials[Rails.env.to_sym][:mailgun][:MAILGUN_DOMAIN],
-    user_name: Rails.application.credentials[Rails.env.to_sym][:mailgun][:MAILGUN_USER_NAME],
-    password: Rails.application.credentials[Rails.env.to_sym][:mailgun][:MAILGUN_PASSWORD],
+    domain: Rails.application.credentials.dig(Rails.env.to_sym, :mailgun, :MAILGUN_DOMAIN),
+    user_name: Rails.application.credentials.dig(Rails.env.to_sym, :mailgun, :MAILGUN_USER_NAME),
+    password: Rails.application.credentials.dig(Rails.env.to_sym, :mailgun, :MAILGUN_PASSWORD),
   }
 end
