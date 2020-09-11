@@ -44,7 +44,7 @@ Rails.application.configure do
   # config.action_cable.allowed_request_origins = [ 'http://example.com', /http:\/\/example.*/ ]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  # config.force_ssl = true
+  config.force_ssl = true
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
@@ -109,4 +109,16 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  config.action_mailer.default_url_options = { host: 'https://higolearn.com' }
+
+  #Config transactional mailgun  
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.mailgun.org',
+    port: 587,
+    authentication: 'plain',
+    domain: Rails.application.credentials[Rails.env.to_sym][:mailgun][:MAILGUN_DOMAIN],
+    user_name: Rails.application.credentials[Rails.env.to_sym][:mailgun][:MAILGUN_USER_NAME],
+    password: Rails.application.credentials[Rails.env.to_sym][:mailgun][:MAILGUN_PASSWORD],
+  }
 end
