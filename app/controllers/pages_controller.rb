@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  def home
+  def index
   end
 
   # def about disable this function for temporary
