@@ -11,29 +11,29 @@
                 <li class="nav-item active p-2">
                     <%= link_to 'Proyectos', project_index_path, class: "btn nav-link" %>
                 </li>
-                <% if (!user_signed_in?) %>
+                <%# if (!user_signed_in?) %>
                     <li class="nav-item active p-2">
-                        <%= link_to "Iniciar Sesión", new_user_session_path, class: "btn btn-light nav-link" %>
+                        <%#= link_to "Iniciar Sesión", new_user_session_path, class: "btn btn-light nav-link" %>
                     </li>
                     <li class="nav-item active p-2">
-                        <%= link_to "Regístrate", new_user_registration_path, class: "btn btn-light nav-link" %>   
+                        <%#= link_to "Regístrate", new_user_registration_path, class: "btn btn-light nav-link" %>   
                     </li>
-                <% else %>
-                    <li class="nav-item dropdown">
+                <%# else %>
+                    <!--li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <%= image_tag avatar_url(current_user), class: "img-circle avatar-medium", alt: "Avatar Icon" %>&nbsp;
+                            <%#= image_tag avatar_url(current_user), class: "img-circle avatar-medium", alt: "Avatar Icon" %>&nbsp;
                             <span>
-                                <%= truncate(current_user.fullname, :length => 17, :separator => ' ') %>
+                                <%#= truncate(current_user.fullname, :length => 17, :separator => ' ') %>
                             </span>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <%= link_to "Mi Perfil", edit_user_registration_path, class: "dropdown-item" %>
-                            <%= link_to "Mis Proyectos", myprojects_path, class: "dropdown-item" %>
+                            <%#= link_to "Mi Perfil", edit_user_registration_path, class: "dropdown-item" %>
+                            <%#= link_to "Mis Proyectos", myprojects_path, class: "dropdown-item" %>
                             <div class="dropdown-divider"></div>
-                            <%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                            <%#= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
                         </div>
-                    </li>
-                <% end %>
+                    </li -->
+                <%# end %>
             </ul>
         </div>
     </nav>
