@@ -16,7 +16,7 @@ require "sprockets/railtie"
 #solution error Net::OpenTimeout
 # require 'net / http'
 # require 'openssl'
-require 'resolv-replace'
+#require 'resolv-replace'
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems

@@ -71,4 +71,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #rails/helper.rb:355: warning: Using the last argument as keyword parameters is deprecated; maybe ** should be added to the call
 #sprockets/base.rb:118: warning: The called method `[]' is defined here
 #solved
-gem "sprockets-rails", git: 'git://github.com/rails/sprockets-rails.git'
+#gem "sprockets-rails", git: 'git://github.com/rails/sprockets-rails.git'
