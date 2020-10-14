@@ -33,9 +33,8 @@ Rails.application.configure do
   config.active_storage.replace_on_assign_to_many = false
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = true
-
   config.action_mailer.perform_caching = false
-
+  config.action_mailer.perform_deliveries = true
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 

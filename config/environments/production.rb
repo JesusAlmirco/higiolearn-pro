@@ -112,7 +112,7 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { :host => 'https://higolearn.com' }
   config.action_mailer.asset_host = 'https://higolearn.com'
 
-  #Config transactional mailgun  
+  #Config transactional mailgun  SMTP
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address: 'smtp.mailgun.org',
@@ -123,5 +123,12 @@ Rails.application.configure do
     password: Rails.application.credentials.dig(Rails.env.to_sym, :mailgun, :MAILGUN_PASSWORD),
     enable_starttls_auto: true
   }
+
+  #Config transactional mailgun API
+  # config.action_mailer.delivery_method = :mailgun
+  # config.action_mailer.mailgun_settings = {
+  #   api_key: Rails.application.credentials.dig(Rails.env.to_sym, :mailgun, :MAILGUN_API_KEY),
+  #   domain: 'higolearn.com'
+  # }
   
 end
