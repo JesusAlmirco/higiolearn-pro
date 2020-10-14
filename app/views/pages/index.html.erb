@@ -1,12 +1,12 @@
 <!-- Jumbotron Header -->
 <header class="jumbotron my-4 text-center">
     <h2 class="jumbotron-title">Bienvenido a <strong>HiGoLearn</strong></h2>
-    <p>
+    <h6>
         Construya Paginas Web, Aplicaciones y Video Juegos desde lo básico hasta crear <strong>Startups</strong><br>
         de la vida real. Con <strong>Python</strong>, <strong>Django</strong>, <strong>Ruby</strong>, <strong>Rails</strong>, <strong>JavaScript</strong> y mucho más.
-    </p>
+    </h6>
     <%= image_tag 'monitor.png', class: "img-responsive", alt: "Jumbotron Image" %> <br>
-    <%= link_to 'Iniciar Aprender', project_index_path, class: "btn btn-form" %>
+    <%#= link_to 'Iniciar Aprender', project_index_path, class: "btn btn-form" %>
 </header>
 
 <div class="row mt-4">
@@ -85,7 +85,7 @@
       hour = minute * 60,
       day = hour * 24;
 
-    let countDown = new Date('Oct 20, 2020 00:00:00').getTime(),
+    let countDown = new Date('Nov 30, 2020 00:00:00').getTime(),
     x = setInterval(function() {    
 
         let now = new Date().getTime(),
