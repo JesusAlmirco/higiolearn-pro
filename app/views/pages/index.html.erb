@@ -1,13 +1,25 @@
 <!-- Jumbotron Header -->
-<header class="jumbotron my-4 text-center">
-    <h2 class="jumbotron-title">Bienvenido a <strong>HiGoLearn</strong></h2>
-    <h6>
-        Construya Paginas Web, Aplicaciones y Video Juegos desde lo básico hasta crear <strong>Startups</strong><br>
-        de la vida real. Con <strong>Python</strong>, <strong>Django</strong>, <strong>Ruby</strong>, <strong>Rails</strong>, <strong>JavaScript</strong> y mucho más.
-    </h6>
-    <%= image_tag 'monitor.png', class: "img-responsive", alt: "Jumbotron Image" %> <br>
-    <%#= link_to 'Iniciar Aprender', project_index_path, class: "btn btn-form" %>
-</header>
+<div class="jumbotron">
+    <div class="container text-center text-lg-left">
+    
+        <div class="row">
+            <div class="col-lg-8">
+            <h1 class="display-4">
+                Aprende a <span class="highlight-word">programar</span> en su máxima expresión.
+            </h1>
+            <p class="lead">
+                Construya Paginas Web, Aplicaciones y Video Juegos desde lo básico hasta crear Startups
+                de la vida real. Con Python, Django, Ruby, Rails, JavaScript y mucho más.
+            </p>
+            
+        </div>
+        <div class="col-lg-4 align-items-center d-flex">
+            
+            <%= image_tag 'header.png', class: "img-fluid", alt:"header image - https://www.dlf.pt" %>
+        </div>
+        </div>
+    </div>
+</div>
 
 <div class="row mt-4">
     <div class="col text-center">
@@ -22,7 +34,7 @@
             <%= image_tag 'question.svg', class: "img-circle feature-img-responsive mt-2", alt: "Feature Image 1" %>
             <div class="card-body">
                 <h4 class="card-title feature-card-title">Newbie Level</h4>
-                <p class="card-text">Usted aprendera los conceptos esenciales para dominar el arte de la programación.</p>
+                <p class="lead">Aprende los conceptos esenciales para dominar el arte de la programación creando pequeños proyectos.</p>
             </div>
         </div>
     </div>
@@ -32,7 +44,7 @@
             <%= image_tag 'user-interface.svg', class: "img-circle feature-img-responsive mt-2", alt: "Feature Image 2" %>
             <div class="card-body">
                 <h4 class="card-title feature-card-title">Expert Level</h4>
-                <p class="card-text">Aprenderas programación orientada a objetos y metodología de diseño de Software con proyectos reales. </p>
+                <p class="lead">Aprenderas programación orientada a objetos y metodología de diseño de Software con proyectos reales. </p>
             </div>
         </div>
     </div>
@@ -42,7 +54,7 @@
             <%= image_tag 'mission.svg', class: "img-circle feature-img-responsive mt-2", alt: "Feature Image 3" %>
             <div class="card-body">
                 <h4 class="card-title feature-card-title">Hero Level</h4>
-                <p class="card-text">En este proyecto, los guiaré paso a paso para desarrollar aplicaciones reales como <Strong>UberEats</Strong> y <strong>Fiverr</strong> desde cero.</p>
+                <p class="lead">En este proyecto, los guiaré paso a paso para desarrollar aplicaciones reales como <Strong>UberEats</Strong> y <strong>Fiverr</strong> desde cero.</p>
             </div>
         </div>
     </div>
@@ -85,7 +97,7 @@
       hour = minute * 60,
       day = hour * 24;
 
-    let countDown = new Date('Nov 30, 2020 00:00:00').getTime(),
+    let countDown = new Date('Jan 4, 2021 00:00:00').getTime(),
     x = setInterval(function() {    
 
         let now = new Date().getTime(),
